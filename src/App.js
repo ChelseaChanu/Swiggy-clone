@@ -1,18 +1,14 @@
 import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
-import "../styles.css";
+import "../index.css";
 
 import Header from "./components/Header";
 import AppBody from "./components/AppBody";
-import AboutUs from "./components/AboutUs";
-import ValuesAtSwiggy from "./components/ValuesAtSwiggy";
-import Footer from "./components/Footer";
 import RestaurantMenu from "./components/RestaurantMenu";
 import {useEffect} from "react"
 import { DataContextProvider } from "./components/DataContextProvider";
 import ErrorPage from "./components/ErrorPage";
-import ShimmerUI from "./components/ShimmerUI";
 
 const App = () => {
   
@@ -22,10 +18,9 @@ const App = () => {
 
   return (
     <DataContextProvider >
-      <div className="appLayout">
+      <div className="select-none">
         <Header />
         <Outlet />
-        <Footer/>
       </div>
     </DataContextProvider>
   );
@@ -43,11 +38,6 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "about",
-        element: <AboutUs/>
-      },
-      {
-        path: "value",
-        element: <ValuesAtSwiggy/>
       },
       {
         path: "restaurants/:resId",

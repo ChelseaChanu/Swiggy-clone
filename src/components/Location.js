@@ -2,6 +2,8 @@ import { useContext, useState, useEffect } from "react";
 import useGeolocation from "../utils/useGeolocation";
 import { DataContext } from "./DataContextProvider";
 
+import { X } from "react-feather";
+
 const Location = (props)=>{
   const {onClose} = props;
   const[address, setAddress] = useState("");
@@ -26,12 +28,12 @@ const Location = (props)=>{
   }
 
   return(
-    <div className="location">
-      <div className="location__leftSection">
-        <div className="location__leftSection__details">
-          <div className="location__leftSection__details__closeBtn" onClick={onClose}>X</div>
-          <div className="location__leftSection__details__input">
-            <input className="location__leftSection__details__input__input" 
+    <div className="bg-[#282C3F81] flex z-[10000] fixed top-0 left-0 bottom-0 right-0 overflow-hidden">
+      <div className="bg-white w-[35%] gap-5 pl-10 pr-40 pt-8">
+        <div className="">
+          <div className="cursor-pointer" onClick={onClose}><X strokeWidth={1} size={26}/></div>
+          <div className="flex gap-3 h-[50px] w-full mt-6 border border-[#d4d5d9] px-5 shadow-[0px_1px_10px_rgba(0,_0,_0,_0.24)]">
+            <input className="h-full w-[80%] outline-none" 
             type="text" 
             spellcheck="false"
             value={address}
@@ -40,11 +42,11 @@ const Location = (props)=>{
             onKeyDown={handleKeyDown}
             >
             </input>
-            <button className="location__leftSection__details__input__btn" onClick={handleCancelBtn}>Cancel</button>
+            <button className="text-[#fc8019] text-xs" onClick={handleCancelBtn}>Cancel</button>
           </div>
         </div>
       </div>
-      <div className="location__rightSection" onClick={onClose}></div>
+      <div className="bg-inherit"></div>
     </div>
   )
 }

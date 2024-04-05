@@ -3,7 +3,7 @@ import RestauCard from "./RestauCard";
 
 const RestauContainer = ({filterRestau})=>{
   return(
-    <div className="restauContainer">
+    <div className="w-[1180px] grid grid-cols-4 gap-8 mx-auto pt-7 pb-24">
       {
         filterRestau?.map((restaurant)=> 
           <Link to={`/restaurants/${restaurant.info.id}`} key={restaurant.info.id} className="restauLink">

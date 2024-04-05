@@ -3,6 +3,9 @@ import { DataContext } from "./DataContextProvider";
 import { Field, Formik, Form } from "formik";
 import * as yup from 'yup';
 
+import { LOGIN_IMG } from "../utils/constants";
+import { X } from "react-feather";
+
 const LoginPage = ({onClose})=>{
 
   const {updateName, updateLoginStatus} = useContext(DataContext);
@@ -41,15 +44,15 @@ const LoginPage = ({onClose})=>{
   }
 
   return(
-    <div className="loginPage">
-      <div className="loginPage__leftSection" onClick={onClose}></div>
-      <div className="loginPage__rightSection">
-        <div className="loginPage__rightSection__details">
-          <span className="loginPage__rightSection__details__closeBtn" onClick={handleClose}></span>
-          <div className="loginPage__rightSection__details__container">
-            <div className="loginPage__rightSection__details__container__title">Login</div>
-            <div className="loginPage__rightSection__details__container__imgContainer">
-              <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/Image-login_btpq7r" alt="image"/>
+    <div className="bg-[#282C3F81] flex flex-row-reverse z-[10000] fixed top-0 left-0 bottom-0 right-0 overflow-hidden">
+      <div className="bg-inherit"></div>
+      <div className="bg-white w-[35%] gap-5 pl-10 pr-40 pt-8">
+        <div className="flex flex-col gap-4">
+          <span className="cursor-pointer" onClick={handleClose}><X strokeWidth={1} size={26}/></span>
+          <div className="flex justify-between mb-16">
+            <div className="text-3xl font-medium font-[BasicGrotesque]">Login</div>
+            <div className="w-[100px]">
+              <img className="w-full h-full" src={LOGIN_IMG} alt="image"/>
             </div>
           </div>
         </div>
@@ -57,47 +60,47 @@ const LoginPage = ({onClose})=>{
           onSubmit={onLogin}
         >
           {({ values, touched, errors })=>(
-            <Form className="loginPage__rightSection__form">
-              <div className="loginPage__rightSection__form__field">
-                <Field className="loginPage__rightSection__form__field__input" 
+            <Form className="flex flex-col">
+              <div className="block relative border border-[#d4d5d9]">
+                <Field className="px-5 pt-6 h-[70px] w-full outline-none" 
                   type="tel" 
                   name="phoneNumber" 
                   onFocus={handleFocus}
                   onBlur={handleBlur}
                 />
-                <label className={`loginPage__rightSection__form__field__label ${errors.phoneNumber && touched.phoneNumber ? 'validationError' : ''}${values.name !== '' ? 'labelOnFocus' : ''}`}
+                <label className={`absolute left-0 bottom-6 pl-5 text-lg text-[#93959f] w-full transition duration-200 ease-in ${errors.phoneNumber && touched.phoneNumber ? 'validationError' : ''}${values.name !== '' ? 'labelOnFocus' : ''}`}
                   htmlFor="mobile"
                 >
                   {errors.phoneNumber  && touched.phoneNumber ? errors.phoneNumber : "Phone Number"}
                 </label>
               </div>
-              <div className="loginPage__rightSection__form__field">
-                <Field className="loginPage__rightSection__form__field__input" 
+              <div className="block relative border border-[#d4d5d9]">
+                <Field className="px-5 pt-6 h-[70px] w-full outline-none" 
                   type="text" 
                   name="name"
                   onFocus={handleFocus}
                   onBlur={handleBlur}
                 />
-                <label className={`loginPage__rightSection__form__field__label ${errors.name && touched.name ? 'validationError' : ''} ${values.name !== '' ? 'labelOnFocus' : ''}`}
+                <label className={`absolute left-0 bottom-6 pl-5 text-lg text-[#93959f] w-full transition duration-200 ease-in ${errors.name && touched.name ? 'validationError' : ''} ${values.name !== '' ? 'labelOnFocus' : ''}`}
                   htmlFor="name"
                 >
                   {errors.name  && touched.name ? errors.name : "Name"}
                 </label>
               </div>
-              <div className="loginPage__rightSection__form__field">
-                <Field className="loginPage__rightSection__form__field__input" 
+              <div className="block relative border border-[#d4d5d9]">
+                <Field className="px-5 pt-6 h-[70px] w-full outline-none" 
                   type="email" 
                   name="email"
                   onFocus={handleFocus}
                   onBlur={handleBlur}
                 />
-                <label className={`loginPage__rightSection__form__field__label ${errors.email && touched.email ? 'validationError' : ''} ${values.name !== '' ? 'labelOnFocus' : ''}`}  
+                <label className={`absolute left-0 bottom-6 pl-5 text-lg text-[#93959f] w-full transition duration-200 ease-in ${errors.email && touched.email ? 'validationError' : ''} ${values.name !== '' ? 'labelOnFocus' : ''}`}  
                   htmlFor="email"
                 >
                   {errors.email  && touched.email ? errors.email : "Email"}
                 </label>
               </div>
-              <button className="loginPage__rightSection__form__submitBtn" type="submit">CONTINUE</button>
+              <button className="bg-[#fc8019] text-white h-[50px] w-full px-8 mt-6" type="submit">CONTINUE</button>
             </Form>
           )}
         </Formik>

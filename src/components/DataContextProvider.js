@@ -8,6 +8,11 @@ export const DataContextProvider = ({children})=>{
   const[userName, setUserName] = useState("");
   const[loginStatus, setLoginStatus] = useState("Login");
   const[data, setData] = useState([]);
+  const[title, setTitle] = useState("");
+  const[titleCarousel, setTitleCarousel] = useState("");
+  const[foodCarousel, setFoodCarousel] = useState([]);
+  const[titleTopRestau, setTitleTopRestau] = useState("");
+  const[topFoods, setTopFoods] = useState([]);
   const[filteredRestau, setFilteresRestau] = useState([]);
   const[apiAddress, setApiAddress] = useState("Koramangala, Bengaluru, Karnataka, India");
   const[latitude,setLatitude] = useState("12.9351929");
@@ -33,6 +38,12 @@ export const DataContextProvider = ({children})=>{
         throw new Error(`API call failed: ${data.status}`);
       }
       const json = await data.json();
+      console.log(json);
+      setTitle(json?.data?.cards[2]?.card?.card?.title);
+      setTitleCarousel(json?.data?.cards[0]?.card?.card?.header?.title);
+      setFoodCarousel(json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info);
+      setTitleTopRestau(json?.data?.cards[1]?.card?.card?.header?.title);
+      setTopFoods(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
       setData(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
       setFilteresRestau(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
@@ -47,9 +58,9 @@ export const DataContextProvider = ({children})=>{
   return(
     <DataContext.Provider 
     value={{
-      data, filteredRestau, handleFilter, userName, updateName, loginStatus, 
-      updateLoginStatus,setLatitude, setLongitude,latitude,longitude, apiAddress,
-      setApiAddress
+      data, title, foodCarousel, titleCarousel, filteredRestau, titleTopRestau, topFoods,
+      handleFilter, userName, updateName, loginStatus, updateLoginStatus,setLatitude, 
+      setLongitude,latitude,longitude, apiAddress, setApiAddress
     }}>
       {children}
     </DataContext.Provider>

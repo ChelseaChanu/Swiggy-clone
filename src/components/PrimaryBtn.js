@@ -6,11 +6,10 @@ const PrimaryBtn = (props)=>{
   // filter restau based on rating
   const filterRestau = ()=>{
     const filtered = filterFunc();
-    // setRestauList(filtered);
     onFilter(filtered);
   }
   return(
-    <button className="primary-btn" onClick={filterRestau}>{buttonName}</button>
+    <button className="border border-gray-300 rounded-3xl px-3 py-1 shadow-[0px_1px_5px_rgba(0,_0,_0,_0.24)] font-[BasicGrotesque] text-[#02060CBF]" onClick={filterRestau}>{buttonName}</button>
   );
 }
 
