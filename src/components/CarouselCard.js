@@ -2,7 +2,7 @@ import React from "react";
 import { CDN_URL, EXTENSION } from "../utils/constants";
 
 const CarouselCard = (props) =>{
-  const {id, image} = props;
+  const {image} = props;
 
   return (
     <div>

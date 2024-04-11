@@ -1,7 +1,7 @@
 import React,{useRef, useState} from "react";
-import { Star } from "react-feather";
+import { FaStar } from "react-icons/fa";
 
-const MenuCard = (props)=>{
+const AccordionItem = (props)=>{
   const {isVeg, name, description, defaultPrice, imgUrl, rating, ratingCount} = props;
   const imagePath = isVeg === 1 ? require("../../assets/Images/Veg_symbol.jpg") : require("../../assets/Images/non__veg.png");
   const [showMore, setShowMore] = useState(false);
@@ -27,7 +27,7 @@ const MenuCard = (props)=>{
   }
 
   return(
-    <div className="flex  justify-between items-start border-b-[1px] pt-5 pb-10 border-gray-200 w-full">
+    <div className="bg-white flex justify-between items-start border-b-[1px] pt-5 pb-10 border-gray-200 w-full">
       <div className="w-[65%]">
         <img src={imagePath} alt="image" className="rounded-md pb-1" style={imgStyle}/>
         <h3 className="font-[BasicGrotesque] text-[#02060CBF] text-lg font-bold pb-1">{name}</h3>
@@ -35,7 +35,7 @@ const MenuCard = (props)=>{
         {rating !==undefined? 
           (
             <div className="flex gap-1 items-center">
-              <Star strokeWidth={1} size={14} color="green" fill="green"/>
+              <FaStar strokeWidth={1} size={14} color="green" fill="green"/>
               <p>{rating}</p>
               <p>{`(${ratingCount})`}</p>
             </div>
@@ -56,4 +56,4 @@ const MenuCard = (props)=>{
   )
 }
 
-export default MenuCard;
+export default AccordionItem;

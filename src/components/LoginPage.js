@@ -4,7 +4,7 @@ import { Field, Formik, Form } from "formik";
 import * as yup from 'yup';
 
 import { LOGIN_IMG } from "../utils/constants";
-import { X } from "react-feather";
+import { IoClose } from "react-icons/io5";
 
 const LoginPage = ({onClose})=>{
 
@@ -48,7 +48,7 @@ const LoginPage = ({onClose})=>{
       <div className="bg-inherit"></div>
       <div className="bg-white w-[35%] gap-5 pl-10 pr-40 pt-8">
         <div className="flex flex-col gap-4">
-          <span className="cursor-pointer" onClick={handleClose}><X strokeWidth={1} size={26}/></span>
+          <span className="cursor-pointer" onClick={handleClose}><IoClose strokeWidth={1} size={26}/></span>
           <div className="flex justify-between mb-16">
             <div className="text-3xl font-medium font-[BasicGrotesque]">Login</div>
             <div className="w-[100px]">

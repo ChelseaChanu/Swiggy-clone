@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import CarouselCard from "./CarouselCard";
 import { DataContext } from "./DataContextProvider";
-import { ArrowLeftCircle, ArrowRightCircle } from "react-feather";
+import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 
 const FoodCarousel = () =>{
   const {foodCarousel, titleCarousel} = useContext(DataContext);
@@ -9,7 +9,7 @@ const FoodCarousel = () =>{
 
   const itemWidth = 144;
   const gapWidth = 20;
-  const totalWidth = (itemWidth + gapWidth) * foodCarousel.length;
+  const totalWidth = (itemWidth + gapWidth) * foodCarousel?.length;
   const maxTranslateX = Math.max(totalWidth - 1180, 0);
   const translateX = Math.min(current * ((itemWidth + gapWidth)*2.5), maxTranslateX);
 
@@ -19,7 +19,7 @@ const FoodCarousel = () =>{
   };
 
   const handleNext = ()=>{
-    let index = current <= foodCarousel.length -1? current+1 : current;
+    let index = current <= foodCarousel?.length -1? current+1 : current;
     setCurrent(index);
   };
 
@@ -28,8 +28,8 @@ const FoodCarousel = () =>{
       <div className="flex justify-between">
         <h2 className="font-[BasicGrotesque] text-2xl text-grey-900 font-bold py-3">{titleCarousel}</h2>
         <div className="flex gap-2 ">
-          <ArrowLeftCircle className="cursor-pointer text-blue-500" strokeWidth={1} size={32} onClick={handlePrev}/>
-          <ArrowRightCircle className="cursor-pointer text-blue-500" strokeWidth={1} size={32} onClick={handleNext}/>
+          <FiArrowLeftCircle className="cursor-pointer text-blue-500" strokeWidth={1} size={32} onClick={handlePrev}/>
+          <FiArrowRightCircle className="cursor-pointer text-blue-500" strokeWidth={1} size={32} onClick={handleNext}/>
         </div>
       </div>
       <div className="overflow-y-hidden overflow-x-scroll no-scrollbar px-5">
@@ -40,7 +40,7 @@ const FoodCarousel = () =>{
           }}
         >
           {
-            foodCarousel.map((item)=>
+            foodCarousel?.map((item)=>
               <CarouselCard key={item.id} image={item.imageId}/>
             )
           }

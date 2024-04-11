@@ -14,9 +14,9 @@ export const DataContextProvider = ({children})=>{
   const[titleTopRestau, setTitleTopRestau] = useState("");
   const[topFoods, setTopFoods] = useState([]);
   const[filteredRestau, setFilteresRestau] = useState([]);
-  const[apiAddress, setApiAddress] = useState("Koramangala, Bengaluru, Karnataka, India");
-  const[latitude,setLatitude] = useState("12.9351929");
-  const[longitude,setLongitude] = useState("77.62448069999999");
+  const[apiAddress, setApiAddress] = useState("Bengaluru, Karnataka, India");
+  const[latitude,setLatitude] = useState("12.9715987");
+  const[longitude,setLongitude] = useState("77.5945627");
 
   const updateName = (name)=>{
     setUserName(name);

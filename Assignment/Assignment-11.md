@@ -1,0 +1,3 @@
+# What is prop drilling?
+
+Props are objects that are passed as data from parent component to child component. Prop drilling is the situation where same props are passed thorugh multiple levels of nested components to reach the data to the deepest or last component. With the increase in application size the maintainance becomes tough, in some situtaions props are passed down to nested components but used only in the deepest level. To avoid prop drilling React hook useContext or state management libraries like Redux is used. 

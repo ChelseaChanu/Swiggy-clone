@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { DataContext } from "./DataContextProvider";
-import { ArrowLeftCircle, ArrowRightCircle } from "react-feather";
+import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 import RestauCard from "./RestauCard";
 
 const TopRestauCarousel = () =>{
@@ -9,7 +9,7 @@ const TopRestauCarousel = () =>{
 
   const itemWidth = 270;
   const gapWidth = 32;
-  const totalWidth = (itemWidth + gapWidth) * topFoods.length;
+  const totalWidth = (itemWidth + gapWidth) * topFoods?.length;
   const maxTranslateX = Math.max(totalWidth - 1180, 0);
   const translateX = Math.min(current * ((itemWidth + gapWidth)*2.5), maxTranslateX);
 
@@ -20,7 +20,7 @@ const TopRestauCarousel = () =>{
   };
 
   const handleNext = ()=>{
-    let index = current <= topFoods.length -1? current+1 : current;
+    let index = current <= topFoods?.length -1? current+1 : current;
     setCurrent(index);
   };
 
@@ -29,8 +29,8 @@ const TopRestauCarousel = () =>{
       <div className="flex justify-between">
         <h2 className="font-[BasicGrotesque] text-2xl text-grey-900 font-bold py-3">{titleTopRestau}</h2>
         <div className="flex gap-2 ">
-          <ArrowLeftCircle className="cursor-pointer text-blue-500" strokeWidth={1} size={32} onClick={handlePrev}/>
-          <ArrowRightCircle className="cursor-pointer text-blue-500" strokeWidth={1} size={32} onClick={handleNext}/>
+          <FiArrowLeftCircle className="cursor-pointer text-blue-500" strokeWidth={1} size={32} onClick={handlePrev}/>
+          <FiArrowRightCircle className="cursor-pointer text-blue-500" strokeWidth={1} size={32} onClick={handleNext}/>
         </div>
       </div>
       <div className="overflow-y-hidden overflow-x-scroll no-scrollbar pl-2 pb-3 pt-2">
@@ -41,7 +41,7 @@ const TopRestauCarousel = () =>{
           }}
         >
           {
-            topFoods.map((item)=>
+            topFoods?.map((item)=>
               <RestauCard key={item?.info?.id} restauData = {item}/>
             )
           }
