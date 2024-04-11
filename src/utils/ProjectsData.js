@@ -4,7 +4,7 @@ export const projectData = {
       id: 1,
       title: "Food ordering Website",
       description: "Experience a stylish food ordering site crafted with React, Parcel, Tailwind CSS, and Swiggy Live API integration. Enjoy seamless browsing, filtering, and account features for personalized experiences. Effortlessly change delivery locations with real-time Swiggy API updates, ensuring a smooth ordering process.",
-      liveUrl: "",
+      liveUrl: "https://6617f8f58dd9892514ae5281--foodwebiste.netlify.app/",
       github: "https://github.com/ChelseaChanu/Swiggy-clone"
     },
     {
