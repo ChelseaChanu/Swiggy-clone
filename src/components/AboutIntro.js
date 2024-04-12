@@ -16,7 +16,7 @@ const AboutIntro = ()=>{
       <div className="flex gap-5 items-center">
         <div className="h-44 w-2 bg-gradient-to-b from-[#2ff0e3] to-[#096575]"></div>
         <div className="flex flex-col gap-3">
-          <p>I'm Chelsea Wahengbam, a <b>passionate software developer</b> with a knack for transforming innovative ideas into real-world applications. My journey in tech is driven by a quest to create seamless, intuitive digital experiences. </p>
+          <p>I'm Chelsea Wahengbam, a <b>passionate software developer</b> with a knack for transforming innovative ideas into real-world applications. My journey in tech is driven by a quest to create seamless, intuitive digital experiences.</p>
           <p>Whether it's engineering <b>robust solutions</b> or developing <b>scalable systems</b> for complex projects, I strive to make technology more accessible and engaging for everyone.</p>
         </div>
       </div>
