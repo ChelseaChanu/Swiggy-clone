@@ -1,7 +1,6 @@
-import React,{useState} from "react";
+import React from "react";
 import AccordionItem from "./AccordionItem";
 import { FaAngleDown, FaAngleUp} from "react-icons/fa";
-import { CDN_URL } from '../utils/constants';
 
 const Accordion = (props)=>{
   const {title, data, showItem, setAccordionIndex} = props;
@@ -9,6 +8,7 @@ const Accordion = (props)=>{
   const handleClick =()=>{
     setAccordionIndex();
   }
+
   return(
     <div className='w-full flex flex-col'>
       <div className='flex justify-between items-center px-1 bg-white cursor-pointer' onClick={handleClick}>
@@ -20,13 +20,15 @@ const Accordion = (props)=>{
       {showItem && data?.map((item)=>(
         <AccordionItem
           key={item?.card?.info.id}
+          id={item?.card?.info.id}
           isVeg={item?.card?.info?.isVeg}
           name={item?.card?.info?.name}
           description={ item?.card?.info?.description}
           defaultPrice={item?.card?.info?.defaultPrice || item?.card?.info?.price}
-          imgUrl={item?.card?.info?.imageId !==undefined? `${CDN_URL}fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/${item?.card?.info?.imageId}`:null}
+          imgUrl={item?.card?.info?.imageId}
           rating={item?.card?.info?.ratings?.aggregatedRating?.rating}
           ratingCount={item?.card?.info?.ratings?.aggregatedRating?.ratingCountV2}
+          btnName="Add"
         />
       ))}
     </div>

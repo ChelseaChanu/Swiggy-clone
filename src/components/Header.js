@@ -8,6 +8,7 @@ import { LOGO_URL } from "../utils/constants";
 import useSearchFilter from "../utils/useSearchFilter";
 import useModal from "../utils/useModal";
 import { FiInfo, FiShoppingCart, FiUser,FiSearch, FiHome } from "react-icons/fi";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const { data, handleFilter, loginStatus, updateLoginStatus, apiAddress } =
@@ -27,6 +28,8 @@ const Header = () => {
       openModal("loginModal");
     }
   };
+
+  const cart = useSelector((store)=> store.cart.items);
 
   return (
     <div className="fixed top-0 left-0 w-full h-20 px-8 py-3 bg-white shadow-[0_15px_40px_-20px_rgba(40,44,63,.15)] z-[1000]">
@@ -52,21 +55,22 @@ const Header = () => {
           <ul className="flex gap-4 items-center">
             <li>
               <Link to="/" className="text-base flex items-center gap-1 font-[Montserrat] hover:text-[#fc8019]">
-                <FiHome strokeWidth={1} size={22} />Home
+                <FiHome strokeWidth={1} size={24} />Home
               </Link>
             </li>
             <li>
               <Link to="/about" className="text-base flex items-center gap-1 font-[Montserrat] hover:text-[#fc8019]">
-                <FiInfo strokeWidth={1} size={22} />About
+                <FiInfo strokeWidth={1} size={24} />About
               </Link>
             </li>
             <li>
-              <Link to="/cart" className="text-base flex items-center gap-1 font-[Montserrat] hover:text-[#fc8019]">
-                <FiShoppingCart strokeWidth={1} size={22} />Cart
+              <Link to="/cart" className="relative text-base flex items-center gap-1 font-[Montserrat] hover:text-[#fc8019]">
+                <FiShoppingCart strokeWidth={1} size={24} />Cart
+                <span className="absolute top-[-5px] left-[10px] bg-white h-[18px] text-sm font-medium text-red-700">{cart.length}</span>
               </Link>
             </li>
             <li id="login" onClick={displayLogin} className="cursor-pointer text-base flex items-center gap-1 font-[Montserrat] hover:text-[#fc8019]">
-              <FiUser strokeWidth={1} size={22} />{loginStatus}
+              <FiUser strokeWidth={1} size={24} />{loginStatus}
             </li>
           </ul>
         </div>

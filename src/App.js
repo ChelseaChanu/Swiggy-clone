@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet, useLocation} from "react-router-dom";
+import { Provider } from "react-redux";
 import "../index.css";
 
 import Header from "./components/Header";
@@ -12,6 +13,7 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import {useEffect} from "react"
 import { DataContextProvider } from "./components/DataContextProvider";
 import Projects from "./components/Projects";
+import appStore from "./utils/appStore";
 
 const App = () => {
   const location = useLocation();
@@ -22,12 +24,14 @@ const App = () => {
   },[]);
 
   return (
-    <DataContextProvider >
-      <div className="select-none">
-        {pathname==="/about"? null : <Header/>}
-        <Outlet />
-      </div>
-    </DataContextProvider>
+    <Provider store={appStore}>
+      <DataContextProvider >
+        <div className="select-none">
+          {pathname==="/about"? null : <Header/>}
+          <Outlet />
+        </div>
+      </DataContextProvider>
+    </Provider>
   );
 };
 

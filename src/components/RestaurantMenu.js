@@ -14,7 +14,7 @@ const RestaurantMenu = ()=>{
   const {name, cuisines, areaName, avgRatingString, totalRatingsString} = resInfo?.cards[2]?.card?.card?.info;
   const {lastMileTravelString} = resInfo?.cards[2]?.card?.card?.info?.sla;
   const items = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-  const itemCards = items.filter((ele)=> ele?.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
+  const itemCards = items?.filter((ele)=> ele?.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
 
   return (
     <div className="relative top-[80px] py-4 w-[800px] mx-auto pb-20 overflow-x-hidden">
