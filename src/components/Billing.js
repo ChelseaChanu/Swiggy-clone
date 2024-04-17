@@ -42,7 +42,7 @@ const Billing = (props) => {
           <p className="font-semibold">₹ {totalBalance}</p>
         </div>
       </div>
-      <button className="bg-[#fc8019] text-white h-[50px] w-full px-8 mt-7 hover:scale-125" onClick={deliverOrder}>Checkout Order</button>
+      <button className="bg-[#fc8019] text-white h-[50px] w-full px-8 mt-7 hover:scale-95 transition-transform duration-300" onClick={deliverOrder}>Checkout Order</button>
     </div>
   );
 };
