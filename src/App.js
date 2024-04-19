@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet, useLocation} from "react-router-dom";
 import { Provider } from "react-redux";
+import "../index.css";
 
 import Header from "./components/Header";
 import AppBody from "./components/AppBody";
