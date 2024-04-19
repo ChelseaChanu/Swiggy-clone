@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet, useLocation} from "react-router-dom";
 import { Provider } from "react-redux";
-import "../index.css";
 
 import Header from "./components/Header";
 import AppBody from "./components/AppBody";
@@ -12,7 +11,6 @@ import ErrorPage from "./components/ErrorPage";
 import RestaurantMenu from "./components/RestaurantMenu";
 import {useEffect} from "react"
 import { DataContextProvider } from "./components/DataContextProvider";
-import Projects from "./components/Projects";
 import appStore from "./utils/appStore";
 
 const App = () => {

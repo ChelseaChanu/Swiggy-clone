@@ -41,13 +41,14 @@ const Header = () => {
         <div className="flex items-center gap-3 w-[35rem] px-4 py-3 shadow-[0px_2px_8px_rgba(0,_0,_0,_0.24)] rounded-3xl">
           <input
             className="w-[95%] outline-none border-none"
+            data-testid="searchInput"
             type="text"
             value={inputValue}
             onChange={getValue}
             onKeyDown={handleSearch}
             placeholder="Search for food or restaurants"
           />
-          <button type="submit" onClick={handleSearch}>
+          <button type="submit" onClick={handleSearch} data-testid="searchBtn">
             <FiSearch strokeWidth={1} size={24} color="gray" />
           </button>
         </div>

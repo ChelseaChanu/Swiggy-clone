@@ -6,7 +6,7 @@ const useRestaurantMenu = (resId)=>{
 
   const fetchMenu = async()=>{
     const data = await fetch(`${SWIGGY_MENU_API_URL}${resId}`);
-    const json = await data.json();
+    const json = await data?.json();
     setRestauInfo(json?.data);
   }
 

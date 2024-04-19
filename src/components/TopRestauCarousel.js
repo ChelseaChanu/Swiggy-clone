@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { DataContext } from "./DataContextProvider";
 import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 import RestauCard from "./RestauCard";
@@ -42,7 +43,9 @@ const TopRestauCarousel = () =>{
         >
           {
             topFoods?.map((item)=>
-              <RestauCard key={item?.info?.id} restauData = {item}/>
+              <Link to={`restaurants/${item?.info?.id}`} key={item?.info?.id}>
+                <RestauCard restauData = {item}/>
+              </Link>
             )
           }
         </div>

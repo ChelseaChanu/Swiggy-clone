@@ -3,11 +3,11 @@ import { FaStar } from "react-icons/fa";
 
 const RestauCard = (props)=>{
   const {restauData} = props;
-  const {cloudinaryImageId, name, avgRating, cuisines, locality} = restauData.info;
-  const {deliveryTime} = restauData.info.sla;
+  const {cloudinaryImageId, name, avgRating, cuisines, locality} = restauData?.info;
+  const {deliveryTime} = restauData?.info?.sla;
   
   return(
-    <div className="z-[1000] flex flex-col justify-center gap-3 w-[270px] h-[290px] rounded-xl bg-neutral-50 shadow-[0px_3px_8px_rgba(0,_0,_0,_0.24)] hover:scale-90 transition-transform duration-200 shrink-0 grow-0">
+    <div data-testid="restauCard" className="z-[1000] flex flex-col justify-center gap-3 w-[270px] h-[290px] rounded-xl bg-neutral-50 shadow-[0px_3px_8px_rgba(0,_0,_0,_0.24)] hover:scale-90 transition-transform duration-200 shrink-0 grow-0">
       <div className="h-[160px] rounded-xl">
         <img className="w-full h-full object-cover rounded-xl" src={CDN_URL+cloudinaryImageId} alt="image"/>
       </div>
@@ -18,7 +18,7 @@ const RestauCard = (props)=>{
           <p className="font-[BasicGrotesque] text-base font-bold">{avgRating}</p>
           <p className="font-[BasicGrotesque] text-base font-bold">{deliveryTime} mins</p>
         </div>
-        <p className="font-[BasicGrotesque] truncate text-gray-400 font-extralight">{cuisines.join(', ')}</p>
+        <p className="font-[BasicGrotesque] truncate text-gray-400 font-extralight">{cuisines?.join(', ')}</p>
         <p className="font-[BasicGrotesque] truncate text-gray-400 font-extralight">{locality}</p>
       </div>
     </div>

@@ -14,14 +14,14 @@ const useGeolocation = (address)=>{
 
     try{
       const response = await fetch(`${url}?${params}`);
-      const data = await response.json();
-      if(data.length > 0){
-        setLatitude(data[0].lat);
-        setLongitude(data[0].lon);
+      const data = await response?.json();
+      if(data?.length > 0){
+        setLatitude(data[0]?.lat);
+        setLongitude(data[0]?.lon);
       }
     }
     catch(error){
-      console.error("Error:", error.message);
+      console.error("Error:", error?.message);
       return null;
     }
   }

@@ -7,7 +7,7 @@ const RestauContainer = ({filterRestau})=>{
     <div className="w-[1180px] grid grid-cols-4 gap-8 mx-auto pt-7 pb-8">
       {
         filterRestau?.map((restaurant)=> 
-          <Link to={`/restaurants/${restaurant.info.id}`} key={restaurant.info.id} className="restauLink">
+          <Link to={`/restaurants/${restaurant.info.id}`} key={restaurant.info.id}>
             {restaurant.info?.loyaltyDiscoverPresentationInfo?.freedelMessage === "FREE DELIVERY"?
               <RestauCardFreeDelivery restauData = {restaurant}/>:
               <RestauCard restauData = {restaurant}/>

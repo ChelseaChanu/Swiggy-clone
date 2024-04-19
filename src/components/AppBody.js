@@ -8,7 +8,7 @@ import FoodCarousel from "./FoodCarousel";
 import TopRestauCarousel from "./TopRestauCarousel";
 
 const AppBody = ()=>{
-  const {data, title, filteredRestau, handleFilter, userName, loginStatus, userEmail} = useContext(DataContext);
+  const {data, title, filteredRestau, handleFilter, userName, loginStatus} = useContext(DataContext);
   return data?.length===0 ? <ShimmerUI /> : (
     <div className="relative top-[80px] py-4">
       <FoodCarousel />

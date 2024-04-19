@@ -31,25 +31,16 @@ export const DataContextProvider = ({children})=>{
   },[latitude, longitude]);
 
   const fetchData = async ()=>{
-    try{
-      const data = await fetch(`${RESTAURANTS_API_URL}lat=${latitude}&lng=${longitude}`);
-      
-      if(!data.ok){
-        throw new Error(`API call failed: ${data.status}`);
-      }
-      const json = await data.json();
-      console.log(json);
-      setTitle(json?.data?.cards[2]?.card?.card?.title);
-      setTitleCarousel(json?.data?.cards[0]?.card?.card?.header?.title);
-      setFoodCarousel(json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info);
-      setTitleTopRestau(json?.data?.cards[1]?.card?.card?.header?.title);
-      setTopFoods(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-      setData(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-      setFilteresRestau(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    }
-    catch(error){
-      console.error("Fetching data failed:", error.message);
-    }
+    const data = await fetch(`${RESTAURANTS_API_URL}lat=${latitude}&lng=${longitude}`);
+    const json = await data.json();
+    console.log(json);
+    setTitle(json?.data?.cards[2]?.card?.card?.title);
+    setTitleCarousel(json?.data?.cards[0]?.card?.card?.header?.title);
+    setFoodCarousel(json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info);
+    setTitleTopRestau(json?.data?.cards[1]?.card?.card?.header?.title);
+    setTopFoods(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setData(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteresRestau(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
   const handleFilter = (filteredRestau)=>{
     setFilteresRestau(filteredRestau);
